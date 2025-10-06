@@ -10,7 +10,7 @@ from dataset.k400 import CustomKineticsDataset
 ds = dataset_download("ipythonx/k4testset")
 
 BATCH_SIZE = 4
-NUM_SAMPLES = 64
+NUM_SAMPLES = 200
 
 transform = T.Compose([
     T.Resize((224, 224)),
@@ -18,7 +18,7 @@ transform = T.Compose([
     T.Normalize(mean=[0.45, 0.45, 0.45], std=[0.225, 0.225, 0.225])
 ])
 
-dataset = CustomKineticsDataset(root=ds, annotation_file=ds+'/kinetics400_val_list_videos.txt', frames_per_clip=8)
+dataset = CustomKineticsDataset(root=ds, annotation_file=ds+'/kinetics400_val_list_videos.txt', frames_per_clip=6)
 
 # pick a small subset for quick test
 small_dataset = Subset(dataset, range(NUM_SAMPLES))
